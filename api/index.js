@@ -22,11 +22,11 @@ app.post('/message', (req, res) => {
     const response = openai.createCompletion({
         model: 'text-davinci-003',
         prompt: req.body.message,
-        temperature: 0,
+        temperature: 0.9,
         top_p: 1,
         frequency_penalty: 0,
-        presence_penalty: 0,
-        max_tokens: 256
+        presence_penalty: 0.6,
+        max_tokens: 150
     });
 
     response.then((data) => {

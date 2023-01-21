@@ -2,7 +2,6 @@
 /* Add a background color to the chat screen */
 body {
     font-family: 'Roboto', sans-serif;
-    background: #010141;
     background-size: cover;
     background-position: center center;
     font-smoothing: antialiased;
@@ -17,10 +16,10 @@ body {
   .codingnexus {
     color: #fff;
     margin-top: 15px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .codingnexus a {
-    color: #fff;
+    color: #333333;
     text-decoration: none;
   }
 
@@ -31,30 +30,27 @@ body {
   /* Style the chat box */
   .chat-box {
     margin: 0 auto;
-    width: 600px;
+    width: 60rem;
     max-width: 100%;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*background: #010141;*/
     overflow: hidden;
-    max-height: calc(100vh - 250px);
-    height: calc(100vh - 250px);
+    max-height: calc(100vh - 40px);
+    height: calc(100vh - 40px);
   }
 
   .codingnexus {
     width: 100%;
     text-align: center;
   }
+
   
   /* Style the chat box header */
   .chat-box-header {
-    background-color: #0084ff;
-    color: #ffffff;
+    color: grey;
     padding: 16px;
     font-size: 20px;
     font-weight: bold;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+
   }
   
   /* Style the chat box body */
@@ -74,14 +70,14 @@ body {
   
   /* Style the user's messages */
   .chat-box-body .message {
-    background-color: #e6e6e6;
-    color: #333333;
+    background-color: #ffffff;
+    color: grey;
   }
   
   /* Style the chatbot's responses */
   .chat-box-body .response {
-    background-color: #0084ff;
-    color: #ffffff;
+    
+    color: #333333;
     text-align: right;
   }
   
@@ -120,10 +116,10 @@ body {
   
   /* Add some hover effects to the button */
   .chat-box-footer button:hover {
-    background-color: #0073e6;
+    background-color: #005bbf;
   }
   
   .chat-box-footer button:active {
-    background-color: #005bbf;
+    background-color: rgb(223, 223, 223);
   }
   
