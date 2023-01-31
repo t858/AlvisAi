@@ -1,7 +1,9 @@
+
 const chatBox = document.querySelector(".chat-box");
 const inputField = chatBox.querySelector("input[type='text']");
 const button = chatBox.querySelector("button");
 const chatBoxBody = chatBox.querySelector(".chat-box-body");
+const mic = document.getElementById("image");
 
 button.addEventListener("click", sendMessage);
 inputField.addEventListener("keypress", function(event) {
@@ -9,6 +11,39 @@ inputField.addEventListener("keypress", function(event) {
     sendMessage();
   }
 });
+
+mic.addEventListener("click", toggleRecording);
+
+let recognition;
+
+if ("webkitSpeechRecognition" in window) {
+  recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+} else {
+  console.log("Speech Recognition Not Available");
+}
+
+let recording = false;
+
+function toggleRecording() {
+  if (!recording) {
+    recognition.start();
+    mic.src = './assets/Mic On.jpg';
+    recognition.onresult = function(event) {
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          inputField.value = event.results[i][0].transcript;
+        }
+      }
+    };
+    recording = true;
+  } else {
+    recognition.stop();
+    mic.src = './assets/Mic Off.jpg';
+    recording = false;
+  }
+}
 
 function sendMessage() {
   const message = inputField.value;
@@ -45,7 +80,6 @@ function sendMessage() {
     scrollToBottom();
   })
 }
-
 function scrollToBottom() {
   chatBoxBody.scrollTop = chatBoxBody.scrollHeight;
 }
